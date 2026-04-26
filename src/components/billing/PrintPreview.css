@@ -1,0 +1,58 @@
+.receipt-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.modal-title-sm {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.btn-close-sm {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-close-sm:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.receipt-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+/* Ensuring receipt is centered properly */
+.receipt-scroll-area {
+  padding: var(--space-6) var(--space-4) !important;
+  max-height: 75vh !important;
+  background: var(--bg-secondary) !important;
+  overflow-y: auto !important;
+  display: block !important;
+}
+
+.thermal-receipt {
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+.receipt-preview-box {
+  width: 400px !important;
+  max-height: 90vh !important;
+}

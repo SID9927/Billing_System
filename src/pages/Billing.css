@@ -1,0 +1,422 @@
+.billing-page {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+/* ── Product Panel ── */
+.billing-products {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.billing-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.billing-search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.billing-search {
+  padding-left: 2.5rem !important;
+  border-radius: var(--radius-full) !important;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-3);
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.product-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.product-card:active {
+  transform: scale(0.97);
+}
+
+.product-card-category {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+}
+
+.product-card-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  flex: 1;
+}
+
+.product-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-1);
+}
+
+.product-card-price {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* ── Bill Panel ── */
+.bill-panel {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: var(--space-5);
+  max-height: calc(100vh - var(--header-height) - var(--space-12));
+  overflow-y: auto;
+}
+
+.bill-section { padding: var(--space-3) 0; }
+
+.bill-section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+
+.bill-customer-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Cart */
+.bill-cart { flex: 1; }
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8) 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.cart-list { display: flex; flex-direction: column; gap: var(--space-2); }
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  animation: slideInRight 0.2s ease;
+}
+
+.cart-item-info { flex: 1; min-width: 0; }
+.cart-item-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cart-item-gst {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+}
+
+.qty-btn {
+  width: 26px; height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+.qty-btn:hover { background: var(--primary-ghost); color: var(--primary); }
+
+.qty-value {
+  min-width: 20px;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.cart-item-total {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Discount */
+.discount-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* Totals */
+.bill-totals { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-3) 0; }
+
+.bill-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.bill-total-row.discount { color: var(--success); }
+
+.bill-total-row.grand {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  padding-top: var(--space-2);
+}
+
+/* Payment Modes */
+.payment-modes {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.payment-mode-btn {
+  flex: 1;
+  padding: 0.5rem var(--space-3);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 40px;
+}
+
+.payment-mode-btn.active {
+  border-color: var(--primary);
+  background: var(--primary-ghost);
+  color: var(--primary);
+}
+
+.payment-mode-btn:hover:not(.active) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Bill Actions */
+.bill-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .billing-page { grid-template-columns: 1fr; }
+  .bill-panel {
+    position: static;
+    max-height: none;
+  }
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .bill-actions { flex-wrap: wrap; }
+  .bill-actions .btn-primary { width: 100%; }
+}
+
+/* ── Receipt Preview ── */
+.receipt-preview-box {
+  max-width: 440px !important;
+}
+
+.receipt-scroll-area {
+  background: var(--bg-secondary);
+  padding: var(--space-6) !important;
+  display: flex;
+  justify-content: center;
+}
+
+.thermal-receipt {
+  width: 100%;
+  max-width: 320px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 24px;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.receipt-shop-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.receipt-shop-info {
+  font-size: 11px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.receipt-divider {
+  border-top: 1px dashed #ccc;
+  margin: 12px 0;
+}
+
+.receipt-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.receipt-customer-info {
+  font-size: 11px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.receipt-customer-info strong {
+  color: #000;
+}
+
+.receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
+
+.receipt-table th {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.receipt-table td {
+  padding: 8px 0;
+  vertical-align: top;
+}
+
+.item-name {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.item-details {
+  font-size: 10px;
+  color: #777;
+  margin: 2px 0 0;
+}
+
+.receipt-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.total-row.discount {
+  color: var(--danger);
+}
+
+.total-row.grand-total {
+  font-size: 16px;
+  font-weight: 900;
+  color: #000;
+  margin-top: 4px;
+}
+
+.receipt-footer {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.footer-msg {
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.footer-tagline {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #aaa;
+  letter-spacing: 0.1em;
+}
