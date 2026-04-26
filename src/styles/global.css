@@ -1,6 +1,16 @@
 @import './design-tokens.css';
 
-/* Global app layout styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none; /* Disable text selection for app feel */
+}
+
+input, textarea, [contenteditable="true"] {
+  user-select: text; /* Allow selection for inputs */
+}
+
 .app-shell {
   display: flex;
   min-height: 100vh;
